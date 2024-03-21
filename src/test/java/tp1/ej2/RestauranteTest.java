@@ -1,6 +1,7 @@
+package tp1.ej2;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import tp1.ej2.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
