@@ -9,9 +9,8 @@ public class Mastercard extends TarjetaCredito {
     }
 
     @Override
-    public double calcularDescuento(Pedido pedido) {
-        double costoPlatos = pedido.getCostoPlatos();
-        costoPlatos = costoPlatos * porcentajeDescuento;
+    public double calcularDescuento(double montoPlatos, double montoBebidas) {
+        double costoPlatos = montoPlatos * porcentajeDescuento;
         return costoPlatos;
     }
 }

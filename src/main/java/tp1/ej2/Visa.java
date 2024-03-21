@@ -9,9 +9,8 @@ public class Visa extends TarjetaCredito {
     }
 
     @Override
-    public double calcularDescuento(Pedido pedido) {
-        double descuento = pedido.getCostoBebida();
-        descuento = descuento * porcentajeDescuento;
+    public double calcularDescuento(double montoPlatos, double montoBebidas) {
+        double descuento = montoBebidas * porcentajeDescuento;
         return descuento;
     }
 }

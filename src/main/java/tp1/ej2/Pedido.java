@@ -19,23 +19,9 @@ public class Pedido {
         }
     }
 
-    public void agregarPlato(Plato plato, int cantidadPlatos) {
-        for (int i = 1; i <= cantidadPlatos; i++)
-            this.platos.add(plato);
-    }
-
-    public void agregarBebida(Bebida bebida, int cantidadBebidas) {
-        for (int i = 1; i <= cantidadBebidas; i++)
-            this.bebidas.add(bebida);
-    }
-
     public double calcularCostoBebida() {
         for (Bebida bebida : bebidas)
             this.costoBebida += bebida.getPrecio();
-        return costoBebida;
-    }
-
-    public double getCostoBebida() {
         return costoBebida;
     }
 
@@ -45,23 +31,15 @@ public class Pedido {
         return costoPlatos;
     }
 
-    public double getCostoPlatos() {
-        return costoPlatos;
-    }
-
     public double calcularCostoBebidaYPlatos() {
         this.costoBebidaYPlatos = this.calcularCostoBebida() + this.calcularCostoPlato();
-        return costoBebidaYPlatos;
-    }
-
-    public double getCostoBebidaYPlatos() {
         return costoBebidaYPlatos;
     }
 
     public double calcularCostoTotal(TarjetaCredito tarjeta, double propina) {
         double costoTotal = this.calcularCostoBebidaYPlatos() +
                 this.calcularPropina(propina) -
-                (tarjeta.calcularDescuento(this));
+                (tarjeta.calcularDescuento(this.costoPlatos, this.costoBebida));
         return costoTotal;
     }
 

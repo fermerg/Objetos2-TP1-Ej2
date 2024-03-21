@@ -9,9 +9,8 @@ public class ComarcaPlus extends TarjetaCredito {
     }
 
     @Override
-    public double calcularDescuento(Pedido pedido) {
-        double costoBebidaYPlatos = pedido.getCostoBebidaYPlatos();
-        costoBebidaYPlatos = costoBebidaYPlatos * porcentajeDescuento;
+    public double calcularDescuento(double montoPlatos, double montoBebidas) {
+        double costoBebidaYPlatos = (montoPlatos + montoBebidas) * porcentajeDescuento;
         return costoBebidaYPlatos;
     }
 }
